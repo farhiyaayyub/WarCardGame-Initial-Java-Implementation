@@ -37,31 +37,26 @@ public class Card implements Comparable<Card> {
 
     // Returns the card's symbol and rank, colored for display in the console.
     public String toColoredString() {
-    String symbol;
     String color;
 
     switch (suit) {
         case DIAMOND:
-            symbol = "\u2666";
             color = "\u001B[91m";
             break;
         case HEART:
-            symbol = "\u2665";
             color = "\u001B[91m";
             break;
         case SPADE:
-            symbol = "\u2660";
             color = "\u001B[97m";
             break;
         case CLUB:
-            symbol = "\u2663";
             color = "\u001B[97m";
             break;
         default:
             throw new IllegalStateException("Unknown card suit.");
     }
 
-    return color + symbol + "-" + rank.getCode() + "\u001B[0m";
+    return color + suit.getCode() + "-" + rank.getCode() + "\u001B[0m";
 }
     // Returns the card as a short code, such as H-A for the ace of hearts.
     @Override
